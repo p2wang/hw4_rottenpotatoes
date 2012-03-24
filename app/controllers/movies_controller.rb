@@ -19,12 +19,14 @@ class MoviesController < ApplicationController
 
     if params[:sort] != session[:sort]
       session[:sort] = sort
+      flash[:notice] = flash[:notice]; flash[:warning] = flash[:warning]
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
 
     if params[:ratings] != session[:ratings] and @selected_ratings != {}
       session[:sort] = sort
       session[:ratings] = @selected_ratings
+      flash[:notice] = flash[:notice]; flash[:warning] = flash[:warning]
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
     @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
@@ -58,4 +60,13 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def find_with_same_director
+    m = Movie.find(params[:id])
+	@director = m.director
+	@movies = Movie.find_all_by_director(m.director)
+	if (m.director.nil? || m.director.length == 0)
+		flash[:notice] = "'#{m.title}' has no director info"
+		redirect_to movies_path
+	end
+  end
 end
