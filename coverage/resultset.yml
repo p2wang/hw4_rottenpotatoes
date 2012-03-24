@@ -94,7 +94,7 @@ Cucumber Features:
     - 11
     - !!null 
     - !!null 
-  :created_at: 2012-03-24 11:57:37.583790000 -07:00
+  :created_at: 2012-03-24 12:08:49.860562000 -07:00
 RSpec:
   :original_result:
     /Users/p2wang/workspace/ruby/saasbook/hw4/hw4_rottenpotatoes/app/controllers/application_controller.rb:
@@ -190,4 +190,4 @@ RSpec:
     - 0
     - !!null 
     - !!null 
-  :created_at: 2012-03-24 11:57:19.903057000 -07:00
+  :created_at: 2012-03-24 12:07:36.371658000 -07:00
